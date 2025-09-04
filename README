@@ -1,4 +1,4 @@
-````markdown
+
 # 📊 DISPLAI-AI — Predicting PAP from EIT
 
 Transform **Electrical Impedance Tomography (EIT) voltages** into **Pulmonary Artery Pressure (PAP)** using a clean, reproducible pipeline.  
@@ -160,5 +160,3 @@ Each patient’s apnea window is defined in seconds in `clinical_config.json`:
 ---
 
 > Research use only. Handle patient data according to your IRB/ethics and privacy requirements.
-
-```
