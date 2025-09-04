@@ -1,7 +1,33 @@
+
+<h3 align="center">
+  <a name="readme-top"></a>
+  <img
+    src="https://img.icons8.com/fluency/240/brain.png"
+    height="120"
+    alt="DISPLAI AI Logo"
+  >
+</h3>
+
+<div align="center">
+
+  <a href="#">
+    <img src="https://img.shields.io/badge/Status-Internal%20Use%20Only-red" alt="Status">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Python-3.9+-blue" alt="Python Version">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Framework-PyTorch-orange" alt="Framework">
+  </a>
+
+</div>
+
+---
+
 # 📊 DISPLAI-AI — Predicting PAP from EIT
 
-Transform **Electrical Impedance Tomography (EIT) voltages** into **Pulmonary Artery Pressure (PAP)** using a clean, reproducible pipeline.  
-This repo includes synchronization, preprocessing, training, and visualization notebooks tailored for clinical research.
+**Internal research project** for our startup.  
+This pipeline transforms **Electrical Impedance Tomography (EIT) voltages** into **Pulmonary Artery Pressure (PAP)** predictions using synchronization, preprocessing, and deep-learning models.
 
 ---
 
@@ -14,7 +40,7 @@ flowchart LR
   C --> D[Voltage filtering & features\n(VoltaFilterTransformation.ipynb)]
   D --> E[Model training\n(Displaid_AI_V1.ipynb)]
   B --> F[Diagnostics plots\n(eit-pap-Tidal_plotter.ipynb)]
-``` 
+````
 
 **Step 1.** Synchronize EIT & PAP using apnea times from `clinical_config.json`.
 **Step 2.** Upsample PAP to the EIT timeline (same rows as voltage).
@@ -77,16 +103,25 @@ Each patient’s apnea window is defined in seconds in `clinical_config.json`:
 
 ---
 
-## 🔮 Roadmap
+## 🔒 Notes
 
-* 🧠 Stronger sequence models (CNN-BiLSTM, Transformers)
-* ⚡ Real-time inference for bedside monitoring
-* 🔍 Automatic apnea detection (no manual config)
-* 📈 Larger datasets for generalization
+* This repository is **private** and for **internal R\&D use only**.
+* Do not redistribute or share externally.
+* Handle all patient/clinical data according to internal compliance and privacy protocols.
 
 ---
 
-> 📌 *Research use only. Handle patient data according to your IRB/ethics and privacy requirements.*
-
+<p align="right">
+    <a href="#readme-top">↑ Back to Top ↑</a>
+</p>
 ```
- 
+
+---
+
+⚡ This version:
+
+* Keeps the **professional look** (badges, centered logo).
+* Makes it clear it’s **internal use only**.
+* Removes stars/contributors/community sections (since it’s not public OSS).
+
+Do you want me to also add a **section at the top with “Quick Start for Team Members”** (like setup + example commands), so new engineers at your startup can onboard faster?
