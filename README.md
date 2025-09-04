@@ -8,12 +8,12 @@ This repo includes synchronization, preprocessing, training, and visualization n
 ## 🚀 Pipeline Overview
 
 ```mermaid
-flowchart LR
-  A[Raw EIT (voltages)\nRaw PAP] --> B[Apnea window cut\n(EitPapSynchronizer.ipynb)]
-  B --> C[Upsample PAP → EIT grid\n(EitPapSynchronizer.ipynb)]
-  C --> D[Voltage filtering & features\n(VoltaFilterTransformation.ipynb)]
-  D --> E[Model training\n(Displaid_AI_V1.ipynb)]
-  B --> F[Diagnostics plots\n(eit-pap-Tidal_plotter.ipynb)]
+graph LR
+    A[Raw EIT and Raw PAP] --> B[Apnea window cut - EitPapSynchronizer]
+    B --> C[Upsample PAP to EIT grid - EitPapSynchronizer]
+    C --> D[Voltage filtering and features - VoltaFilterTransformation]
+    D --> E[Model training - Displaid_AI_V1]
+    B --> F[Diagnostics plots - eit-pap-Tidal_plotter]
 ``` 
 
 **Step 1.** Synchronize EIT & PAP using apnea times from `clinical_config.json`.
