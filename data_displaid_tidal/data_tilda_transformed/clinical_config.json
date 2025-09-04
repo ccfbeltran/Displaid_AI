@@ -1,0 +1,441 @@
+
+{
+
+
+  "default": {
+    "events": {
+      "eit_start_time": 0,
+      "eit_start_ecg_idx": null,   
+      "apnea_start_time": null,
+      "apnea_start_ecg_idx": null,
+      "phenyl_time": null,
+      "phenyl_ecg_idx": null,
+      "apnea_end_time": null,
+      "apnea_end_ecg_idx": null,
+      "valsalva_start_time": null,
+      "valsalva_start_ecg_idx": null,
+      "valsalva_end_time": null,
+      "valsalva_end_ecg_idx": null,
+      "eit_end_time": null,
+      "eit_end_ecg_idx": null,
+      "valid_recording_window": null, 
+      "analysis_window": [null, null]
+    },
+    "ecg_processing": {
+      "cleaning_params": {
+        "thresholding": false,
+        "thresh_factors": [4, 6]
+      } 
+    },
+    "eit_processing": {
+      "freq_analysis": {
+        "freq_range": [0.5, 5],
+        "freq_height_thresh": 0.2
+      },
+      "filtering_params": {
+        "filter_order": 4,
+        "lowcut_factor": 0.8,
+        "highcut_factor": 0.95
+      },
+      "pulmonary_roi": {
+        "method": "cffc",
+        "arg_sign": 1,
+        "num_clusters": null,
+        "breathing_window": false
+      }
+    },
+    "pap_processing": {
+      "cycle_delay": 0,
+      "cycle_window": 0.5,
+      "pat_method": "max_slope_perc",
+      "max_slope_perc": 40,
+      "remove_nan": true,
+      "winsorization_range": [5, 95],
+      "moving_average": true,
+      "moving_average_win": 5,
+      "lowess_fit": true,
+      "confidence": 0.95,
+      "export_data": false
+    },
+    "visualization": {
+      "troubleshooting_mode": false,
+      "dark_mode": false,
+      "figure_width": 24,
+      "ecg_visualization": {
+        "beats_per_line": 10,
+        "num_beats": 20
+      },
+      "eit_visualization": {
+        "border_rgb_limits": [[0.18, 0.20, 0.23], [0.18, 0.20, 0.23]],
+        "eit_rgb_limits": [[0.0, 0.0, 0.0], [1.0, 0.15, 0.15]],
+        "vmin_max_factors": [0.25, 0.75],
+        "legends_off": true,
+        "all_spines_off": false,
+        "save_animation": true,
+        "selected_pixel": [35, 22],
+        "eit_down_factor": 2,
+        "zoom_factor": 3
+      }
+    }
+  },
+
+
+  "TDL010": {
+    "events": {
+      "eit_start_time": 20,
+      "eit_start_ecg_idx": 55700,      
+      "apnea_start_time": 175,
+      "apnea_start_ecg_idx": 90000,
+      "phenyl_time": 285,
+      "phenyl_ecg_idx": 118000,
+      "apnea_end_time": 360,
+      "apnea_end_ecg_idx": 140000,
+      "eit_end_time": 580,
+      "eit_end_ecg_idx": 191000,
+      "analysis_window": [310, 360]
+    },
+    "ecg_processing": {
+      "cleaning_params": {
+        "thresholding": true
+      }
+    },
+    "eit_processing": {
+      "pulmonary_roi": {
+        "arg_sign": -1,
+        "num_clusters": 1
+      }
+    },
+    "pap_processing": {
+      "cycle_window": 1.0,
+      "export_data": true
+    },
+    "visualization": {
+      "troubleshooting_mode": true,
+      "eit_visualization": {
+        "save_animation": true,
+        "selected_pixel": [35, 22]
+      }
+    }
+  },
+
+
+  "TDL011": {
+    "events": {
+      "eit_start_time": 20,
+      "eit_start_ecg_idx": 26000,      
+      "apnea_start_time": 90,
+      "apnea_start_ecg_idx": 46000,
+      "phenyl_time": 160,
+      "phenyl_ecg_idx": 64000,
+      "apnea_end_time": 300,
+      "apnea_end_ecg_idx": 100000,
+      "eit_end_time": 450,
+      "eit_end_ecg_idx": 134600,
+      "analysis_window": [180, 270]
+    },
+    "eit_processing": {
+      "pulmonary_roi": {
+        "arg_sign": -1,
+        "num_clusters": 1
+      }
+    },
+    "pap_processing": {
+      "cycle_window": 1.0,
+      "export_data": true
+    },
+    "visualization": {
+      "troubleshooting_mode": true,
+      "eit_visualization": {
+        "save_animation": true,
+        "selected_pixel": [35, 22]
+      }
+    }
+  },
+
+
+  "TDL012": {
+    "events": {
+      "eit_start_time": 15,
+      "eit_start_ecg_idx": 24000,      
+      "apnea_start_time": 80,
+      "apnea_start_ecg_idx": 40500,
+      "phenyl_time": 155,
+      "phenyl_ecg_idx": 65400,
+      "apnea_end_time": 260,
+      "apnea_end_ecg_idx": 85120,
+      "eit_end_time": 420,
+      "eit_end_ecg_idx": 126300,
+      "analysis_window": [165, 195]
+    },
+    "ecg_processing": {
+      "cleaning_params": {
+        "thresholding": true      
+      }
+    },
+    "eit_processing": {
+      "pulmonary_roi": {
+        "arg_sign": 1,
+        "num_clusters": 1
+      }
+    },
+    "pap_processing": {
+      "cycle_window": 1.0,
+      "export_data": true
+    },
+    "visualization": {
+      "troubleshooting_mode": true,
+      "eit_visualization": {
+        "save_animation": true,
+        "selected_pixel": [35, 22]
+      }
+    }
+  },
+
+
+  "TDL013": {
+    "events": {
+      "eit_start_time": 17,
+      "eit_start_ecg_idx": 25780,      
+      "apnea_start_time": 90,
+      "apnea_start_ecg_idx": 50500,
+      "phenyl_time": 150,
+      "phenyl_ecg_idx": 61100,
+      "apnea_end_time": 275,
+      "apnea_end_ecg_idx": 91100,
+      "eit_end_time": 385,
+      "eit_end_ecg_idx": 115900,
+      "analysis_window": [170, 220]
+    },
+    "ecg_processing": {
+      "cleaning_params": {
+        "thresholding": true      
+      }
+    },
+    "eit_processing": {
+      "pulmonary_roi": {
+        "arg_sign": 1,
+        "num_clusters": 1      
+      }
+    },
+    "pap_processing": {
+      "cycle_window": 1.0,
+      "export_data": true
+    },
+    "visualization": {
+      "troubleshooting_mode": true,
+      "eit_visualization": {
+        "save_animation": true,
+        "selected_pixel": [35, 22]
+      }
+    }
+  },
+
+
+  "TDL014": {
+    "events": {
+      "eit_start_time": 10,
+      "eit_start_ecg_idx": 26000,      
+      "apnea_start_time": 90,
+      "apnea_start_ecg_idx": 48000,
+      "phenyl_time": 105,
+      "phenyl_ecg_idx": 53000,
+      "apnea_end_time": 270,
+      "apnea_end_ecg_idx": 90000,
+      "eit_end_time": 360,
+      "eit_end_ecg_idx": 113000,
+      "analysis_window": [205, 245]
+    },
+    "eit_processing": {
+      "pulmonary_roi": {
+        "arg_sign": 1,
+        "num_clusters": 1      
+      }
+    },
+    "pap_processing": {
+      "cycle_window": 1.0,
+      "export_data": true
+    },
+    "visualization": {
+      "troubleshooting_mode": true,
+      "eit_visualization": {
+        "save_animation": true,
+        "selected_pixel": [35, 22]
+      }
+    }
+  },
+
+
+  "TDL015": {
+    "events": {
+      "eit_start_time": 10,
+      "eit_start_ecg_idx": 321000,      
+      "apnea_start_time": 60,
+      "apnea_start_ecg_idx": 332000,
+      "phenyl_time": 80,
+      "phenyl_ecg_idx": 338000,
+      "apnea_end_time": 210,
+      "apnea_end_ecg_idx": 370000,
+      "eit_end_time": 270,
+      "eit_end_ecg_idx": 386000,
+      "analysis_window": [85, 155]
+    },
+    "eit_processing": {
+      "pulmonary_roi": {
+        "arg_sign": 1,
+        "num_clusters": 1      
+      }
+    },
+    "pap_processing": {
+      "cycle_window": 1,
+      "export_data": true
+    },
+    "visualization": {
+      "troubleshooting_mode": true,
+      "eit_visualization": {
+        "save_animation": true,
+        "selected_pixel": [35, 22]
+      }
+    }
+  },
+
+
+  "TDL016": {
+    "events": {
+      "eit_start_time": 20,
+      "eit_start_ecg_idx": 45400,      
+      "apnea_start_time": 75,
+      "apnea_start_ecg_idx": 57000,
+      "phenyl_time": 120,
+      "phenyl_ecg_idx": 68000,
+      "apnea_end_time": 255,
+      "apnea_end_ecg_idx": 101000,
+      "eit_end_time": 375,
+      "eit_end_ecg_idx": 133000,
+      "analysis_window": [120, 220]
+    },
+    "ecg_processing": {
+      "cleaning_params": {
+        "thresholding": true      
+      }
+    },
+    "eit_processing": {
+      "pulmonary_roi": {
+        "arg_sign": -1,
+        "num_clusters": 1      
+      }
+    },
+    "pap_processing": {
+      "cycle_window": 1.0,
+      "export_data": true
+    },
+    "visualization": {
+      "troubleshooting_mode": true,
+      "eit_visualization": {
+        "save_animation": true,
+        "selected_pixel": [35, 22]
+      }
+    }
+  },
+
+
+  "TDL017": {
+    "events": {
+      "eit_start_time": 15,
+      "eit_start_ecg_idx": 31000,      
+      "apnea_start_time": 75,
+      "apnea_start_ecg_idx": 47000,
+      "phenyl_time": 105,
+      "phenyl_ecg_idx": 57000,
+      "apnea_end_time": 255,
+      "eit_end_time": 315,
+      "eit_end_ecg_idx": 109000,
+      "analysis_window": [120, 150]
+    },
+    "ecg_processing": {
+      "cleaning_params": {
+        "thresholding": true      
+      }
+    },
+    "eit_processing": {
+      "pulmonary_roi": {
+        "arg_sign": -1,
+        "num_clusters": 1      
+      }
+    },
+    "pap_processing": {
+      "cycle_window": 1.0,
+      "export_data": true
+    },
+    "visualization": {
+      "troubleshooting_mode": true,
+      "eit_visualization": {
+        "save_animation": true,
+        "selected_pixel": [35, 22]
+      }
+    }
+  },
+
+
+  "TDL018": {
+    "events": {
+      "eit_start_time": 20,
+      "eit_start_ecg_idx": 426000,      
+      "valsalva_start_time": 66,
+      "valsalva_start_ecg_idx": 436000,
+      "eit_end_time": 120,
+      "eit_end_ecg_idx": 450205,
+      "analysis_window": [70, 105]
+    },
+    "eit_processing": {
+      "pulmonary_roi": {
+        "arg_sign": -1,
+        "num_clusters": 1      
+      }
+    },
+    "pap_processing": {
+      "cycle_window": 1.0,
+      "export_data": true
+    },
+    "visualization": {
+      "troubleshooting_mode": true,
+      "eit_visualization": {
+        "save_animation": true,
+        "selected_pixel": [35, 22]
+      }
+    }
+  },
+
+
+  "TDL019": {
+    "events": {
+      "eit_start_time": 20,
+      "eit_start_ecg_idx": 50000,      
+      "apnea_start_time": 190,
+      "apnea_start_ecg_idx": 92000,
+      "valsalva_start_time": 228,
+      "valsalva_start_ecg_idx": 100000,
+      "eit_end_time": 250,
+      "eit_end_ecg_idx": 107000,
+      "analysis_window": [190, 240]
+    },
+    "eit_processing": {
+      "pulmonary_roi": {
+        "arg_sign": -1,
+        "num_clusters": 1      
+      }
+    },
+    "pap_processing": {
+      "cycle_window": 1.0,
+      "export_data": true
+    },
+    "visualization": {
+      "troubleshooting_mode": true,
+      "eit_visualization": {
+        "save_animation": true,
+        "selected_pixel": [35, 22]
+      }
+    }
+  }
+
+
+}
