@@ -9,12 +9,13 @@ This repo includes synchronization, preprocessing, training, and visualization n
 
 ```mermaid
 graph LR
-    A[Raw EIT and Raw PAP] --> B[Apnea window cut - EitPapSynchronizer]
+    A[Raw Voltage EIT and Raw PAP] --> B[Apnea window cut - EitPapSynchronizer]  
     B --> C[Upsample PAP to EIT grid - EitPapSynchronizer]
     C --> D[Voltage filtering and features - VoltaFilterTransformation]
     D --> E[Model training - Displaid_AI_V1]
     B --> F[Diagnostics plots - eit-pap-Tidal_plotter]
-``` 
+    
+```
 
 **Step 1.** Synchronize EIT & PAP using apnea times from `clinical_config.json`.
 **Step 2.** Upsample PAP to the EIT timeline (same rows as voltage).
@@ -87,6 +88,3 @@ Each patient’s apnea window is defined in seconds in `clinical_config.json`:
 ---
 
 > 📌 *Research use only. Handle patient data according to your IRB/ethics and privacy requirements.*
-
-```
- 
