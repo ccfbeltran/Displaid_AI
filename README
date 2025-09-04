@@ -1,4 +1,3 @@
-
 # 📊 DISPLAI-AI — Predicting PAP from EIT
 
 Transform **Electrical Impedance Tomography (EIT) voltages** into **Pulmonary Artery Pressure (PAP)** using a clean, reproducible pipeline.  
@@ -15,7 +14,7 @@ flowchart LR
   C --> D[Voltage filtering & features\n(VoltaFilterTransformation.ipynb)]
   D --> E[Model training\n(Displaid_AI_V1.ipynb)]
   B --> F[Diagnostics plots\n(eit-pap-Tidal_plotter.ipynb)]
-````
+``` 
 
 **Step 1.** Synchronize EIT & PAP using apnea times from `clinical_config.json`.
 **Step 2.** Upsample PAP to the EIT timeline (same rows as voltage).
@@ -56,43 +55,7 @@ Each patient’s apnea window is defined in seconds in `clinical_config.json`:
 
 * Both **Voltage** and **PAP** are trimmed to `[start, end)`.
 * If `apnea_end_time < apnea_start_time`, the synchronizer raises an error.
-* Sampling rates are set in the notebook (default `eit_sr = 50.355 Hz`; set `pap_sr` to the true PAP rate if known).
-
----
-
-## 🧪 Notebooks — What Each One Does
-
-### 1) `EitPapSynchronizer.ipynb`
-
-* **Cut apnea window** for **both** streams (no filtering).
-* **Upsample PAP** to the **EIT grid** (linear interpolation) → identical row count.
-* **Outputs (typical):**
-
-  * `Data Raw Voltage apnea/{PATIENT}_voltage_apnea.csv`
-  * `Data pap apnea/{PATIENT}_pap_apnea.csv`
-  * `Data pap apnea upscaled/{PATIENT}_pap_on_voltage_apnea.csv`
-
-### 2) `VoltaFilterTransformation.ipynb`
-
-* Denoise voltages (e.g., Savitzky–Golay; optional band-pass).
-* Per-channel normalization (e.g., z-score) with saved stats.
-* Windowing to build model-ready tensors.
-* **Outputs (example):**
-
-  * `features/{PATIENT}/X_windows.npz` (or `.pt`)
-  * `features/{PATIENT}/norm_stats.*`
-  * `plots/` (optional QC figures)
-
-### 3) `Displaid_AI_V1.ipynb`
-
-* Load synchronized + filtered inputs and **upsampled PAP** targets.
-* Train deep-learning models (PyTorch-friendly; CNN/BiLSTM ready).
-* Save metrics, curves, and trained weights.
-
-### 4) `eit-pap-Tidal_plotter.ipynb`
-
-* Visual checks of EIT vs PAP after sync/upsampling.
-* Before/after filtering plots for quick QA.
+* Sampling rates: default `eit_sr = 50.355 Hz`; set `pap_sr` to the true PAP rate if known.
 
 ---
 
@@ -100,63 +63,30 @@ Each patient’s apnea window is defined in seconds in `clinical_config.json`:
 
 * Python **3.9+**
 * Jupyter Notebook
-* Core libraries:
-
-  * `numpy`, `pandas`, `matplotlib`, `scipy`
-  * `scikit-learn`
-  * `torch` (PyTorch)
-
-> Optional: create a `requirements.txt` with the above and run:
->
-> ```bash
-> pip install -r requirements.txt
-> ```
+* Libraries:
+  `numpy`, `pandas`, `matplotlib`, `scipy`, `scikit-learn`, `torch`
 
 ---
 
-## 🔧 How to Run (Quick Start)
+## 🔧 How to Run
 
-1. **Place data & config**
-
-   * Put your CSVs and `clinical_config.json` inside `data_displaid_tidal/` (or subfolders you reference in the notebooks).
-
-2. **Synchronize & Upsample**
-
-   * Open **`EitPapSynchronizer.ipynb`** and run the cells.
-   * Confirm it writes the apnea-trimmed voltage/PAP and the **PAP\_on\_VoltageApnea** CSV.
-
-3. **Filter & Transform**
-
-   * Open **`VoltaFilterTransformation.ipynb`** and run the preprocessing (denoise, normalize, window).
-   * Confirm feature files are saved.
-
-4. **Train**
-
-   * Open **`Displaid_AI_V1.ipynb`** and train the model.
-   * Review metrics and saved artifacts.
-
-5. **Visualize**
-
-   * Open **`eit-pap-Tidal_plotter.ipynb`** for alignment & filtering QA plots.
-
----
-
-## ✅ Tips & Gotchas
-
-* **Sampling rates matter:** keep `eit_sr = 50.355 Hz` (default) and set `pap_sr` to the **true** PAP rate if you know it.
-* **Voltage CSVs** are headerless numeric matrices; **PAP CSVs** keep headers.
-* **Edge cases handled** in upsampling: empty PAP window → zeros; single sample → constant fill.
-* Ensure EIT and PAP timestamps in the config share the **same time origin** (start of recording).
+1. **Synchronize & Upsample** → Run `EitPapSynchronizer.ipynb`
+2. **Filter Voltages** → Run `VoltaFilterTransformation.ipynb`
+3. **Train AI** → Run `Displaid_AI_V1.ipynb`
+4. **Visualize** → Run `eit-pap-Tidal_plotter.ipynb`
 
 ---
 
 ## 🔮 Roadmap
 
-* 🧠 Stronger sequence models (CNN-BiLSTM, Transformers).
-* ⚡ Real-time inference for bedside monitoring.
-* 🔍 Automatic apnea detection (no manual config).
-* 📈 Larger, multi-center datasets for generalization.
+* 🧠 Stronger sequence models (CNN-BiLSTM, Transformers)
+* ⚡ Real-time inference for bedside monitoring
+* 🔍 Automatic apnea detection (no manual config)
+* 📈 Larger datasets for generalization
 
 ---
 
-> Research use only. Handle patient data according to your IRB/ethics and privacy requirements.
+> 📌 *Research use only. Handle patient data according to your IRB/ethics and privacy requirements.*
+
+```
+ 
