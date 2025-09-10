@@ -11,7 +11,7 @@ This repo includes synchronization, preprocessing, training, and visualization n
 graph LR
     A[Raw Voltage EIT and Raw PAP] --> B[Apnea window cut - EitPapSynchronizer]  
     B --> C[Upsample PAP to EIT grid - EitPapSynchronizer]
-    C --> D[Voltage filtering and features - VoltaFilterTransformation]
+    C --> D[Voltage filtering and features - VoltaFilterTransformation NOT WORKING]
     D --> E[Model training - Displaid_AI_V1]
     B --> F[Diagnostics plots - eit-pap-Tidal_plotter]
     
